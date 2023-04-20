@@ -4,34 +4,32 @@ first commit
 
 ### :page_facing_up: About 
 
-- How to use my awesome project.
-- Download instructions (if relevant):
-```
-$ git clonse my-awesome-app
-$ cd my my-awesome-app`
-$ node app.js
-```
- - Add in-app screenshots.
+- How to play my great game of Tic Tac
 
 ### :pencil2: Planning & Problem Solving
 
-- Talk about approach to the problem.
-- Add screenshots/drawings of doodles/plans during the planning phase.
-- Flow charts of app logic.
+- Create a HTML layout for the game board, 3x3 grid of squares, 
+- Use CSS to style the game board which includes the grid
+- add a click event listener for all the squares in the grid
+- mark clicked square with either a X or O depending on the players turn
+- I will have to hard code all possible winning combinations
+- Then declare a function to check winning combinations against hard coded wins
+- check to see if the game is won (so the game doesnt end after first click). stuck thinking about how many winning combinations there are, I think there is 8, I have noted the positions in my js file
+- use that same function to determine the winner
+- check to see if game has drawn then reset the board after displaying a message, ideally a button to reset board rather than immediatly.
+- check to see if
+- display winner
+
 ![person drawing](https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
 
 ### :rocket: Cool tech
 
-- Programming languages
-- Libraries
-- Animations
-- Anything else you'd be proud to show your parents
+
 
 ### :scream: to fix :poop:
 
-- Anything a little broken
-- Anything a LOT broken
 - Buttons to not click too many times (cause its broken :unamused:)
+- toggle between red for player 1 and blue for player 2, because you know.. spiderman
 
 ### :sob: Lessons learnt
 
