@@ -14,7 +14,8 @@ first commit
 - mark clicked square with either a X or O depending on the players turn
 - I will have to hard code all possible winning combinations
 - Then declare a function to check winning combinations against hard coded wins
-- check to see if the game is won (so the game doesnt end after first click). stuck thinking about how many winning combinations there are, I think there is 8, I have noted the positions in my js file
+- check to see if the game is won (so the game doesnt end after first click). stuck thinking about how many winning combinations there are, I think there is 8, I have noted the positions in my js file.
+- could store each players moves in an array and then check if any of their movess creates a winning combination.
 - use that same function to determine the winner
 - check to see if game has drawn then reset the board after displaying a message, ideally a button to reset board rather than immediatly.
 - check to see if
