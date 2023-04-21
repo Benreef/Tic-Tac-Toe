@@ -16,3 +16,12 @@
 .red_background {
     background-color: red;
 }
+#result {
+    width: 300px;
+    height: 100px;
+    background-color: blanchedalmond;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,19 +1,36 @@
 
 var board = document.querySelector('#board')
-// selecting all the squares on the screen
+// Selects all the HTML elements with the class 'square' and assigns them to the variable 'squares'
 var squares = document.querySelectorAll('.square')
-var result = document.querySelector('.result')
+// Selects the HTML element with the ID of result and assigns it to the variable 'result'
+var result = document.querySelector('#result')
+// Creates an array and initialises it with nine empty strings.
 var gameBoard = ['','','','','','','','','']
+// sets the current player to 'X'
 var player = 'X'
-    //var playerTwo = 'O'
-    
+// Initialises the game to False
+var gameOver = false
+
+// This loop adds a click event listener to each square on the game board.
 for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function (event) {
+        if (gameOver) {
+            return; // if game is over, return without stepping through rest of code.
+        }
+        // Using event.target the function gets a reference to the clicked square.
         var square = event.target
+
+        // creates array from squares with the index of square. 
+        // using Array.from() to convert the 'squares' NodeList to an array that can be iterated through.
+        // then uses the indexOf() to find the index of the clicked square in the array.
+        var index = Array.from(squares).indexOf(square)
+        // Checking to see if the clicked square is empty - if it is, continue iterating through the code.
         if (square.textContent === '') {
             square.classList.toggle('red_background') 
             // Marking the squre with players symbol
             square.textContent = player
+            // Updates the gameBoard array with the current players symbol (X/O)
+            gameBoard[index] = player
             // Alternating between each player
                 if (player === 'X') {
                     player = 'O'
@@ -21,9 +38,9 @@ for (var i = 0; i < squares.length; i++) {
                     player = 'X'
                 }
                 //checking after every move if the game is won
-            determineWin(gameBoard)
-            } 
-            })
+            determineWin(gameBoard, player)
+        } 
+        })
 }
 function determineWin(gameBoard) {
 var winCombo = 
@@ -31,16 +48,23 @@ var winCombo =
     [0,1,2], // top row
     [3,4,5], // middle row
     [6,7,8], // bottom row
+
     [0,3,6], // left column
     [1,4,7], // middle column
     [2,5,8], // right columm
+
     [0,4,8], // diagonal from top left
     [2,4,6], // diagonal from top right
     
 ]
 
+// Declares a variable and initialises it as an empty string
+var winningPlayer = ''
+    // Declares a variable gameWin and sets it as false.
     var gameWin = false
+    // Starts a for loop to iterate through each element in the winCombo array
     for (var i = 0; i < winCombo.length; i++) {
+        // This deconstructs the winCombo array and assigns each element to the variables 'a', 'b' and 'c'
         var [a,b,c] = winCombo[i]
         if (
             gameBoard[a] !== '' && 
@@ -48,22 +72,12 @@ var winCombo =
             gameBoard[b] === gameBoard[c]
             ) {
             gameWin = true
+            winningPlayer = gameBoard[a]
             break;
             } 
         } if (gameWin === true) {
-            console.log(player + ' wins')
-            result.innerHTML = (player + 'wins!')
+            gameOver = true;
+            console.log(winningPlayer + ' wins')
+            result.innerHTML = (winningPlayer + ' wins!')
         } 
 }
-
-
-    
-    // if (
-    //     squares[a].textContent !== '' && 
-    //     squares[a].textContent === squares[b].textContent && 
-    //     squares[b].textContent === squares[c].textContent
-    //     ) }   return tru
-    // var a = winCombo[0]
-    // var b = winCombo[1]
-    // var c = winCombo[2]
-    // if (a === '' || b === '' || c === '') {
