@@ -17,24 +17,27 @@ first commit
 - check to see if the game is won (so the game doesnt end after first click). stuck thinking about how many winning combinations there are, I think there is 8, I have noted the positions in my js file.
 - could store each players moves in an array and then check if any of their moves creates a winning combination.
 - use that same function to determine the winner
+- check to see if there are any empty squares and use that to determine a tie
 - check to see if game has drawn then reset the board after displaying a message, ideally a button to reset board rather than immediatly.
-- check to see if
+- check to see if a player as won
 - display winner
 
 ![person drawing](https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
 
 ### :rocket: Cool tech
 
-
+- Make it look pretty (Ideas: animations, highlight boxes to green when either player wins)
+- Hide grid so user needs to press a start button
+- Allow users to add a name, then display name/winner name
 
 ### :scream: to fix :poop:
 
-- Buttons to not click too many times (cause its broken :unamused:)
 - toggle between red for player 1 and blue for player 2, because you know.. spiderman
 
 ### :sob: Lessons learnt
 
-What I would do differently if I could wind back the clock...
+Found I needed to create another variable to set the winning player
+because I was just alternating between X and O, when X won it would display O wins
 
 ### :white_check_mark: Future features
 

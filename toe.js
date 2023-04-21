@@ -4,6 +4,8 @@ var board = document.querySelector('#board')
 var squares = document.querySelectorAll('.square')
 // Selects the HTML element with the ID of result and assigns it to the variable 'result'
 var result = document.querySelector('#result')
+// Selects the HTML button with the ID restart and assigns it to a variable 'restartButton'
+var restartButton = document.querySelector('#restart')
 // Creates an array and initialises it with nine empty strings.
 var gameBoard = ['','','','','','','','','']
 // sets the current player to 'X'
@@ -11,6 +13,8 @@ var player = 'X'
 // Initialises the game to False
 var gameOver = false
 
+
+restartButton.addEventListener('click', restartGame)
 // This loop adds a click event listener to each square on the game board.
 for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function (event) {
@@ -67,10 +71,12 @@ var winningPlayer = ''
         // This deconstructs the winCombo array and assigns each element to the variables 'a', 'b' and 'c'
         var [a,b,c] = winCombo[i]
         if (
+            // This comparison is checking to see if 'a', 'b' and 'c' have the same value (first checking if its not empty)
             gameBoard[a] !== '' && 
             gameBoard[a] === gameBoard[b] && 
             gameBoard[b] === gameBoard[c]
             ) {
+            // assigns the winningPlayer to [a] as it is the first variable in the list. 
             gameWin = true
             winningPlayer = gameBoard[a]
             break;
@@ -79,5 +85,27 @@ var winningPlayer = ''
             gameOver = true;
             console.log(winningPlayer + ' wins')
             result.innerHTML = (winningPlayer + ' wins!')
-        } 
+            // Using the .includes() method to check if there are empty squares left on the screen, if false then game must be tied.
+        } else if (gameBoard.includes('') === false) {
+            gameOver = true
+            result.innerHTML =  "It's a tie!"
+        }
+}
+
+// Need a function to reset the game.
+// Set all variables back to inital state.
+function restartGame() {
+    for (var i = 0; i < squares.length; i++) {
+        // resets the text content of each square
+        squares[i].classList.remove('red_background')
+        squares[i].textContent = ''
+        // resetting the gameBoard array to an empty array
+        gameBoard[i] = ''
+
+    }
+    // resets both gameWin and gameOver varibles to false
+    gameWin = false
+    gameOver = false
+    // resets the winning results
+    result.innerHTML = ''
 }
