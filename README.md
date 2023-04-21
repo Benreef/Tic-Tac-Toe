@@ -36,8 +36,7 @@ first commit
 
 ### :sob: Lessons learnt
 
-Found I needed to create another variable to set the winning player
-because I was just alternating between X and O, when X won it would display O wins
+- Making more concise git commits.
 
 ### :white_check_mark: Future features
 

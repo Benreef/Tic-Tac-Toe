@@ -1,3 +1,10 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
 #board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -6,15 +13,22 @@
     height: 300px;
 
 }
-
 .square {
     border: 2px solid black;
+    display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
     
 
 }
 .red_background {
     background-color: red;
+}
+.green_background {
+    background-color: rgb(26, 181, 26);
 }
 #result {
     width: 300px;

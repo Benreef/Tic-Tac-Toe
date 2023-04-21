@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function(){
 
 var board = document.querySelector('#board')
 // Selects all the HTML elements with the class 'square' and assigns them to the variable 'squares'
@@ -12,6 +13,9 @@ var gameBoard = ['','','','','','','','','']
 var player = 'X'
 // Initialises the game to False
 var gameOver = false
+var win = ' wins by a spectacular display'
+var tie = "It's a tie!"
+
 
 
 restartButton.addEventListener('click', restartGame)
@@ -30,7 +34,7 @@ for (var i = 0; i < squares.length; i++) {
         var index = Array.from(squares).indexOf(square)
         // Checking to see if the clicked square is empty - if it is, continue iterating through the code.
         if (square.textContent === '') {
-            square.classList.toggle('red_background') 
+            // square.classList.toggle('red_background') 
             // Marking the squre with players symbol
             square.textContent = player
             // Updates the gameBoard array with the current players symbol (X/O)
@@ -66,6 +70,7 @@ var winCombo =
 var winningPlayer = ''
     // Declares a variable gameWin and sets it as false.
     var gameWin = false
+    var winningSquares = []
     // Starts a for loop to iterate through each element in the winCombo array
     for (var i = 0; i < winCombo.length; i++) {
         // This deconstructs the winCombo array and assigns each element to the variables 'a', 'b' and 'c'
@@ -79,16 +84,19 @@ var winningPlayer = ''
             // assigns the winningPlayer to [a] as it is the first variable in the list. 
             gameWin = true
             winningPlayer = gameBoard[a]
+            // var winningSquares = [a,b,c]
             break;
             } 
+
         } if (gameWin === true) {
             gameOver = true;
-            console.log(winningPlayer + ' wins')
-            result.innerHTML = (winningPlayer + ' wins!')
+            console.log(winningPlayer + win)
+            result.innerHTML = (winningPlayer + win)
+          
             // Using the .includes() method to check if there are empty squares left on the screen, if false then game must be tied.
         } else if (gameBoard.includes('') === false) {
             gameOver = true
-            result.innerHTML =  "It's a tie!"
+            result.innerHTML =  tie
         }
 }
 
@@ -97,7 +105,7 @@ var winningPlayer = ''
 function restartGame() {
     for (var i = 0; i < squares.length; i++) {
         // resets the text content of each square
-        squares[i].classList.remove('red_background')
+        squares[i].classList.remove('green_background')
         squares[i].textContent = ''
         // resetting the gameBoard array to an empty array
         gameBoard[i] = ''
@@ -109,3 +117,27 @@ function restartGame() {
     // resets the winning results
     result.innerHTML = ''
 }
+
+//code that I can't get right (delete after)
+
+
+
+//     for (var i = 0; i < squares.length; i++) {
+//     if (winningSquares.includes(squares[i])) {
+//         var index = winningSquares[i]
+//         squares[index].style.backgroundColor = 'green'
+//     }   
+// }
+  
+                // for (var i = 0; i < winningSquares.length; i++) {
+                //     var squareId  = square + winningSquares[i]
+                //     var square = document.getElementById(squareId)
+                //      var index = document.querySelectorAll('winningSquares')
+                //     console.log(square)
+                //     square.style.backgroundColor = 'green'
+
+                    // var squareId = 'square' + winningSquares[i]
+                    // var square = document.getElementById(squareId)
+                    // square.
+            // }
+})
