@@ -18,17 +18,38 @@ for (var i = 0; i < squares.length; i++) {
     } 
     })
 }
-var gameWin = 
-    [   
-        [0,1,2], // top row
-        [3,4,5], // middle row
-        [6,7,8], // bottom row
-        [0,3,6], // left column
-        [1,4,7], // middle column
-        [2,5,8], // right columm
-        [0,4,8], // diagonal from top left
-        [2,4,6], // diagonal from top right
-    ]
+function win() {
+    var winCombo = 
+        [   
+            [0,1,2], // top row
+            [3,4,5], // middle row
+            [6,7,8], // bottom row
+            [0,3,6], // left column
+            [1,4,7], // middle column
+            [2,5,8], // right columm
+            [0,4,8], // diagonal from top left
+            [2,4,6], // diagonal from top right
+        ]
+
+    var gameWin = false
+    for (var i = 0; i < winCombo.length; i++) {
+        var [a,b,c] = winCombo[i]
+        var a = winCombo[0]
+        var b = winCombo[1]
+        var c = winCombo[2]
+        if (a === '' || b === '' || c === '') {
+
+        }
+        
+        
+        
+    
+    }   
+
 
    
-
+    // if (
+    //     squares[a].textContent !== '' && 
+    //     squares[a].textContent === squares[b].textContent && 
+    //     squares[b].textContent === squares[c].textContent
+    //     ) }   return tru
