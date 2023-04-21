@@ -3,18 +3,24 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+}
+h1 {
+    font-family: 'Pathway Extreme', sans-serif;
+}
+#playerNames {
+    margin: 10px;
 }
 #board {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     width: 300px;
     height: 300px;
-
+    transition: all 1s ease-in-out;
 }
+
 .square {
-    border: 2px solid black;
+    border: 1px solid black;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -22,7 +28,19 @@ body {
     font-family: 'Caveat', cursive;
     font-size: 2rem;
     
-
+}
+#playerName {
+    flex-direction: column;
+    gap: 20px;
+}
+#startButton {
+    margin: 10px;
+}
+.square.x {
+    color: blue;
+}
+.square.o {
+    color: red;
 }
 .red_background {
     background-color: red;
@@ -31,6 +49,9 @@ body {
     background-color: rgb(26, 181, 26);
 }
 #result {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
     width: 300px;
     height: 100px;
     background-color: blanchedalmond;

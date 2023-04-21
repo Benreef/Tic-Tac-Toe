@@ -7,17 +7,25 @@ var squares = document.querySelectorAll('.square')
 var result = document.querySelector('#result')
 // Selects the HTML button with the ID restart and assigns it to a variable 'restartButton'
 var restartButton = document.querySelector('#restart')
+var startButton = document.querySelector('#startButton')
+// var playerName = document.querySelector('.playerNameInput1')
+// var playerNameInput1 = 
+player1 = document.getElementById('playerNameInput1').value
+player2 = document.getElementById('playerNameInput2').value
+
 // Creates an array and initialises it with nine empty strings.
 var gameBoard = ['','','','','','','','','']
 // sets the current player to 'X'
 var player = 'X'
 // Initialises the game to False
 var gameOver = false
-var win = ' wins by a spectacular display'
-var tie = "It's a tie!"
+var gameWon = (' wins by a spectacular display')
+var gameTie = ("It's a tie!")
 
-
-
+startButton.addEventListener('click', function (){
+    board = document.querySelector('#board')
+    board.style.display = 'grid'
+})
 restartButton.addEventListener('click', restartGame)
 // This loop adds a click event listener to each square on the game board.
 for (var i = 0; i < squares.length; i++) {
@@ -42,8 +50,11 @@ for (var i = 0; i < squares.length; i++) {
             // Alternating between each player
                 if (player === 'X') {
                     player = 'O'
+                    square.style.color = 'blue'
+
                 } else {
                     player = 'X'
+                    square.style.color = 'red'
                 }
                 //checking after every move if the game is won
             determineWin(gameBoard, player)
@@ -90,13 +101,13 @@ var winningPlayer = ''
 
         } if (gameWin === true) {
             gameOver = true;
-            console.log(winningPlayer + win)
-            result.innerHTML = (winningPlayer + win)
+            console.log(winningPlayer + gameWon)
+            result.innerHTML = (winningPlayer + gameWon)
           
             // Using the .includes() method to check if there are empty squares left on the screen, if false then game must be tied.
         } else if (gameBoard.includes('') === false) {
             gameOver = true
-            result.innerHTML =  tie
+            result.innerHTML = gameTie
         }
 }
 
@@ -118,6 +129,14 @@ function restartGame() {
     result.innerHTML = ''
 }
 
+function removeName(event) {
+    event.preventDefault()
+    player1.value = ''
+    player2.value = ''
+}
+
+
+})
 //code that I can't get right (delete after)
 
 
@@ -140,4 +159,3 @@ function restartGame() {
                     // var square = document.getElementById(squareId)
                     // square.
             // }
-})
