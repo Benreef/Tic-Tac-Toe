@@ -8,10 +8,12 @@ var result = document.querySelector('#result')
 // Selects the HTML button with the ID restart and assigns it to a variable 'restartButton'
 var restartButton = document.querySelector('#restart')
 var startButton = document.querySelector('#startButton')
+
+var assignButton = document.getElementById('assignButton')
+
 // var playerName = document.querySelector('.playerNameInput1')
 // var playerNameInput1 = 
-player1 = document.getElementById('playerNameInput1').value
-player2 = document.getElementById('playerNameInput2').value
+
 
 // Creates an array and initialises it with nine empty strings.
 var gameBoard = ['','','','','','','','','']
@@ -20,7 +22,27 @@ var player = 'X'
 // Initialises the game to False
 var gameOver = false
 var gameWon = (' wins by a spectacular display')
-var gameTie = ("It's a tie!")
+var gameTie = ("It's  tie!")
+
+assignButton.addEventListener('click', assignPlayers)
+
+function assignPlayers (event){
+    event.preventDefault()
+    var player1 = document.getElementById('playerNameInput1').value
+    var player2 = document.getElementById('playerNameInput2').value
+    var players =  [player1, player2]
+    var playersName = document.querySelector('.players')
+    for (i = 0; i < 2; i++) {
+        if (players[i].trim() !== '') {
+        var displayName = document.createElement('li')
+        displayName.textContent = players[i]
+        playersName.appendChild(displayName)
+        document.getElementById('playerNameInput1').value = ''
+        document.getElementById('playerNameInput2').value = ''
+        }
+    }
+
+}
 
 startButton.addEventListener('click', function (){
     board = document.querySelector('#board')
@@ -61,6 +83,8 @@ for (var i = 0; i < squares.length; i++) {
         } 
         })
 }
+
+
 function determineWin(gameBoard) {
 var winCombo = 
     [   
@@ -81,7 +105,7 @@ var winCombo =
 var winningPlayer = ''
     // Declares a variable gameWin and sets it as false.
     var gameWin = false
-    var winningSquares = []
+    // var winningSquares = []
     // Starts a for loop to iterate through each element in the winCombo array
     for (var i = 0; i < winCombo.length; i++) {
         // This deconstructs the winCombo array and assigns each element to the variables 'a', 'b' and 'c'

@@ -29,6 +29,10 @@ first commit
 - Make it look pretty (Ideas: animations, highlight boxes to green when either player wins)
 - Hide grid so user needs to press a start button
 - Allow users to add a name, then display name/winner name
+- celebrate victory
+- pretty background
+
+
 
 ### :scream: to fix :poop:
 
@@ -40,4 +44,4 @@ first commit
 
 ### :white_check_mark: Future features
 
-Cool things I would add if I can keep working on this
+Would love to add a feature that displays current players turn, realised that this would involve changing the game logic which I am hesistent to do with my time constraints.
