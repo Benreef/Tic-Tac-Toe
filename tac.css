@@ -16,7 +16,6 @@ h1 {
     }
     /* keyframes are what we are using to dictate what the animation does  */
     @keyframes colorFade {
-        /* using 0% 50% 100% it changes from black to red to black - can inrease/decrease time spent on colour or animation by using lower/higher percentage. can use from - to instead of % but CSS ANIMATIONS will help ( Can combine from/to/75% */
         0% {
             color: black;
         }
@@ -42,7 +41,40 @@ h1 {
             color: black;
         }
     } 
-    
+h2 {
+    margin-top: -15px;
+    font-family: 'Pathway Extreme', sans-serif;
+    animation: colorFade 15s infinite;
+    }
+        /* keyframes are what we are using to dictate what the animation does  */
+        @keyframes colorFade {
+           
+            0% {
+                color: blueviolet;
+            }
+            10% {
+                color: red;
+            }
+            20% {
+                color: blue;
+            }
+            40% {
+                color: blueviolet;
+            }
+            50% {
+                color: red;
+            }
+            60% {
+                color: blue;
+            }
+            90% {
+                color: blueviolet;
+            }
+            100% {
+                color: blueviolet;
+            }
+        } 
+         
 
 #playerNames {
     margin: 10px;
@@ -51,8 +83,8 @@ h1 {
     display: none;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     transition: all 1s ease-in-out;
 }
 
@@ -63,7 +95,7 @@ h1 {
     justify-content: center;
     align-items: center;
     font-family: 'Caveat', cursive;
-    font-size: 2rem;
+    font-size: 3.5rem;
     
 }
 #playerName {
@@ -78,7 +110,7 @@ ul {
 @keyframes colorFade1 {
     /* using 0% 50% 100% it changes from black to red to black - can inrease/decrease time spent on colour or animation by using lower/higher percentage. can use from - to instead of % but CSS ANIMATIONS will help ( Can combine from/to/75% */
     0% {
-        color: black;
+        color: blueviolet;
     }
     10% {
         color: red;
@@ -87,7 +119,7 @@ ul {
         color: blue;
     }
     40% {
-        color: orange;
+        color: blueviolet;
     }
     50% {
         color: red;
@@ -96,26 +128,37 @@ ul {
         color: blue;
     }
     90% {
-        color: orange;
+        color: blueviolet;
     }
     100% {
-        color: black;
+        color: blue;
     }
 } 
 
 span {
-    font-size: 5rem;
+    font-size: 2rem;
     text-decoration: underline;
+}
+#playerNames {
+    color: linear-gradient(to bottom right, red, blue);
 }
 #startButton {
     margin: 10px;
+    background-image: linear-gradient(to top left, red, blue);
 }
-.square.x {
-    color: green;
+#playerNameInput1 {
+    background-image: linear-gradient(to top left, red, blue);
 }
-.square.o {
-    color: red;
+#playerNameInput2 {
+    background-image: linear-gradient(to top left, red, blue);
 }
+#assignButton {
+    background-image: linear-gradient(to top left, red, blue);
+}
+#restart {
+    background-image: linear-gradient(to top left, red, blue);
+}
+
 .red_background {
     background-color: rgb(230, 47, 214);
 }
@@ -128,7 +171,7 @@ span {
     border-radius: 20px;
     width: 300px;
     height: 50px;
-    background-image: linear-gradient(to top left, blue, red);
+    background-image: linear-gradient(to top left, red, blue);
     display: flex;
     text-align: center;
     justify-content: center;

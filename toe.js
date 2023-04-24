@@ -1,53 +1,69 @@
-document.addEventListener('DOMContentLoaded', function(){
-
+// // Selects the HTML element with the class board and assigns it to the variable 'board'
 var board = document.querySelector('#board')
+
 // Selects all the HTML elements with the class 'square' and assigns them to the variable 'squares'
 var squares = document.querySelectorAll('.square')
+
 // Selects the HTML element with the ID of result and assigns it to the variable 'result'
 var result = document.querySelector('#result')
+
 // Selects the HTML button with the ID restart and assigns it to a variable 'restartButton'
 var restartButton = document.querySelector('#restart')
+
+// Selects the HTML button with the ID startButton and assigns it to the variable 'startButton'
 var startButton = document.querySelector('#startButton')
 
+// Selects the HTML button with the ID assignButton and assigns it to the variable 'startButton
 var assignButton = document.getElementById('assignButton')
-
-// var playerName = document.querySelector('.playerNameInput1')
-// var playerNameInput1 = 
-
 
 // Creates an array and initialises it with nine empty strings.
 var gameBoard = ['','','','','','','','','']
+
 // sets the current player to 'X'
 var player = 'X'
+
 // Initialises the game to False
 var gameOver = false
+
+// Setting win or tie results to keep it out of code 
 var gameWon = (' wins by a spectacular display')
 var gameTie = ("It's  tie!")
 
+// Click event from assignButton to store players name in a variable
 assignButton.addEventListener('click', assignPlayers)
-
 function assignPlayers (event){
+    // Prevents form from resetting while active
     event.preventDefault()
+    // Assinging players 1+2 to different variables from input fields for future features 
     var player1 = document.getElementById('playerNameInput1').value
     var player2 = document.getElementById('playerNameInput2').value
+    // Storing player names in an array
     var players =  [player1, player2]
+
+    // Selects the element with the class players and assigns it to the variable playersName
     var playersName = document.querySelector('.players')
     for (i = 0; i < 2; i++) {
+        // Checks to ensure the input field doesn't contain whitespace
         if (players[i].trim() !== '') {
+        // Creates a new list item, then sets it's text content to the players name at index [i], then apends it to the new list item playersName
         var displayName = document.createElement('li')
         displayName.textContent = players[i]
         playersName.appendChild(displayName)
+        // Clears the input field by setting the values of the input fields to empty strings
         document.getElementById('playerNameInput1').value = ''
         document.getElementById('playerNameInput2').value = ''
         }
     }
 
 }
-
+// Adds an event listner to the start button on the page, when clicked the function inside the event listener is executed
 startButton.addEventListener('click', function (){
+    // Selects the board
     board = document.querySelector('#board')
+    // Sets the dispaly of the board to grid - from 'none' on css page
     board.style.display = 'grid'
 })
+// Creates a event listener to listen for the click of the restart button.
 restartButton.addEventListener('click', restartGame)
 // This loop adds a click event listener to each square on the game board.
 for (var i = 0; i < squares.length; i++) {
@@ -84,7 +100,7 @@ for (var i = 0; i < squares.length; i++) {
         })
 }
 
-
+// Game logic
 function determineWin(gameBoard) {
 var winCombo = 
     [   
@@ -122,10 +138,14 @@ var winningPlayer = ''
             // var winningSquares = [a,b,c]
             break;
             } 
-
+            // if statement to check if gameWin is equal to 'true', is so:
         } if (gameWin === true) {
+            // sets gameOvere to true
             gameOver = true;
-            console.log(winningPlayer + gameWon)
+
+            // for debugging purposes
+            // console.log(winningPlayer + gameWon)
+            // Thes the innerHTML of the result element to the concatenated string of winningPlayer and gameWon, displaying the results of the winner.
             result.innerHTML = (winningPlayer + gameWon)
           
             // Using the .includes() method to check if there are empty squares left on the screen, if false then game must be tied.
@@ -140,7 +160,7 @@ var winningPlayer = ''
 function restartGame() {
     for (var i = 0; i < squares.length; i++) {
         // resets the text content of each square
-        squares[i].classList.remove('green_background')
+        // squares[i].classList.remove('green_background')
         squares[i].textContent = ''
         // resetting the gameBoard array to an empty array
         gameBoard[i] = ''
@@ -152,34 +172,3 @@ function restartGame() {
     // resets the winning results
     result.innerHTML = ''
 }
-
-function removeName(event) {
-    event.preventDefault()
-    player1.value = ''
-    player2.value = ''
-}
-
-
-})
-//code that I can't get right (delete after)
-
-
-
-//     for (var i = 0; i < squares.length; i++) {
-//     if (winningSquares.includes(squares[i])) {
-//         var index = winningSquares[i]
-//         squares[index].style.backgroundColor = 'green'
-//     }   
-// }
-  
-                // for (var i = 0; i < winningSquares.length; i++) {
-                //     var squareId  = square + winningSquares[i]
-                //     var square = document.getElementById(squareId)
-                //      var index = document.querySelectorAll('winningSquares')
-                //     console.log(square)
-                //     square.style.backgroundColor = 'green'
-
-                    // var squareId = 'square' + winningSquares[i]
-                    // var square = document.getElementById(squareId)
-                    // square.
-            // }
