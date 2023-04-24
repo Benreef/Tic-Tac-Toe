@@ -28,7 +28,7 @@
 - display winner
 - Store players names as variables within an array
 
-![Alt text](/Users/bengordon/sei/projects/Tic-Tac-Toe/TicTacToePlan.png)
+![Alt text](blob:https://imgur.com/d1b63fd6-6830-4c3c-8364-4b21e35735c8)
 
 ### Cool tech
 
