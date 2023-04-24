@@ -1,3 +1,4 @@
+
 // // Selects the HTML element with the class board and assigns it to the variable 'board'
 var board = document.querySelector('#board')
 
@@ -22,6 +23,9 @@ var gameBoard = ['','','','','','','','','']
 // sets the current player to 'X'
 var player = 'X'
 
+// trying to initialise the players to empty strings
+var players = ['', '']
+
 // Initialises the game to False
 var gameOver = false
 
@@ -29,7 +33,31 @@ var gameOver = false
 var gameWon = (' wins by a spectacular display')
 var gameTie = ("It's  tie!")
 
+// Setting a variable for audio track
+var winSound = new Audio("./mixkit-medieval-show-fanfare-announcement-226.wav")
+var gameSound = new Audio('./mixkit-game-ball-tap-2073.wav')
+
+// Functions to call audio track
+function playAudio() {
+    winSound.play()
+}
+function gameAudio() {
+    gameSound.play()
+}
+
+// Adds an event listner to the start button on the page, when clicked the function inside the event listener is executed
+startButton.addEventListener('click', function (){
+    // Selects the board
+    board = document.querySelector('#board')
+    // Sets the dispaly of the board to grid - from 'none' on css page
+    board.style.display = 'grid'
+})
+
+// Creates a event listener to listen for the click of the restart button.
+restartButton.addEventListener('click', restartGame)
+
 // Click event from assignButton to store players name in a variable
+// Doesn't work to the extent I would like
 assignButton.addEventListener('click', assignPlayers)
 function assignPlayers (event){
     // Prevents form from resetting while active
@@ -39,6 +67,7 @@ function assignPlayers (event){
     var player2 = document.getElementById('playerNameInput2').value
     // Storing player names in an array
     var players =  [player1, player2]
+    console.log(players[0])
 
     // Selects the element with the class players and assigns it to the variable playersName
     var playersName = document.querySelector('.players')
@@ -54,26 +83,19 @@ function assignPlayers (event){
         document.getElementById('playerNameInput2').value = ''
         }
     }
-
 }
-// Adds an event listner to the start button on the page, when clicked the function inside the event listener is executed
-startButton.addEventListener('click', function (){
-    // Selects the board
-    board = document.querySelector('#board')
-    // Sets the dispaly of the board to grid - from 'none' on css page
-    board.style.display = 'grid'
-})
-// Creates a event listener to listen for the click of the restart button.
-restartButton.addEventListener('click', restartGame)
+
 // This loop adds a click event listener to each square on the game board.
 for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', function (event) {
+        event.preventDefault()
         if (gameOver) {
             return; // if game is over, return without stepping through rest of code.
         }
         // Using event.target the function gets a reference to the clicked square.
         var square = event.target
-
+        gameAudio();
+        
         // creates array from squares with the index of square. 
         // using Array.from() to convert the 'squares' NodeList to an array that can be iterated through.
         // then uses the indexOf() to find the index of the clicked square in the array.
@@ -142,7 +164,7 @@ var winningPlayer = ''
         } if (gameWin === true) {
             // sets gameOvere to true
             gameOver = true;
-
+            playAudio();
             // for debugging purposes
             // console.log(winningPlayer + gameWon)
             // Thes the innerHTML of the result element to the concatenated string of winningPlayer and gameWon, displaying the results of the winner.

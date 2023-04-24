@@ -40,7 +40,7 @@
 
 ### to fix
 - Went for a loud over-the-top approach, but readability is a little tough, maybe a diffent way of being overtly OTT would be best.
-- Display winner/losers name from input field in result box.
+- Display winner/losers name from input field in result box. This has been more challenging than I anticipated, I believe it would involve changing how I've written the game logic
 - Actually make the board a grid rather than a square. But CSS is scary
 
 ### Lessons learnt
